@@ -16,12 +16,13 @@ if __name__ == '__main__':
 
     @client.on(events.NewMessage(incoming=True))
     async def handle_new_message(event):
-        newname = '' + datetime.now().strftime("%H:%M")
-        print(newname)
+        about_str = 'Running'
+        if 'UrRanDOmid' in event.raw_text:
+                reply = random.choice(['A', 'B'])
+                await event.reply(reply)
         time.sleep(1)
-        await client(UpdateUsernameRequest(newname))
-        print(newname)
-        time.sleep(60)
+        await client(UpdateProfileRequest(about=about_str))
+        time.sleep(30)
     print(time.asctime(), ' ', 'Starting...')
     client.start(phone, password)
     client.run_until_disconnected()
