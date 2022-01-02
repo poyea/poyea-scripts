@@ -11,7 +11,7 @@ import nltk
 import re
 from typing import List, Dict
 
-nltk.download('stopwords')
+nltk.download("stopwords")
 
 POS_LIST = "positive-words.txt"
 NEG_LIST = "negative-words.txt"
@@ -62,10 +62,12 @@ def preprocess(list_of_comments: List[str]) -> List[str]:
     to_erase_website_re = re.compile(r"https?://\S+")
     list_of_comments = [to_erase_website_re.sub("", line) for line in list_of_comments]
     # 4.)
-    to_erase_re = re.compile("[.;:!\'?,\"()\[\]\+]")
-    list_of_comments = [to_erase_re.sub("", line.lower().strip()) for line in list_of_comments]
+    to_erase_re = re.compile("[.;:!'?,\"()\[\]\+]")
+    list_of_comments = [
+        to_erase_re.sub("", line.lower().strip()) for line in list_of_comments
+    ]
     # 3.)
-    unicode_re = re.compile(u"[\u201C\u2018\u2019\u201D]+", re.UNICODE)
+    unicode_re = re.compile("[\u201C\u2018\u2019\u201D]+", re.UNICODE)
     list_of_comments = [unicode_re.sub("", line) for line in list_of_comments]
     # dashes, slashes
     dash_re = re.compile("[-/]")
@@ -78,7 +80,7 @@ def preprocess(list_of_comments: List[str]) -> List[str]:
         for item in sublist:
             flat_list_of_comments.append(item)
     # 5.)
-    stop_words = set(nltk.corpus.stopwords.words('english'))
+    stop_words = set(nltk.corpus.stopwords.words("english"))
     list_of_comments = [w for w in flat_list_of_comments if not w in stop_words]
     return list_of_comments
 
@@ -87,14 +89,14 @@ if __name__ == "__main__":
     positive = []
     negative = []
     comments = []
-    with open(POS_LIST, "r", encoding = "ISO-8859-1") as txt:
-        positive = txt.read().split('\n')
-        positive = [x for x in positive if len(x) > 0 and next(iter(x), None) != ';']
-    with open(NEG_LIST, "r", encoding = "ISO-8859-1") as txt:
-        negative = txt.read().split('\n')
-        negative = [x for x in negative if len(x) > 0 and next(iter(x), None) != ';']
+    with open(POS_LIST, "r", encoding="ISO-8859-1") as txt:
+        positive = txt.read().split("\n")
+        positive = [x for x in positive if len(x) > 0 and next(iter(x), None) != ";"]
+    with open(NEG_LIST, "r", encoding="ISO-8859-1") as txt:
+        negative = txt.read().split("\n")
+        negative = [x for x in negative if len(x) > 0 and next(iter(x), None) != ";"]
     with open(COM_LIST, "r", encoding="utf-8") as txt:
-        comments = txt.read().split('\n')
+        comments = txt.read().split("\n")
     dictionary = {}
     for pword in positive:
         dictionary[pword] = 1
