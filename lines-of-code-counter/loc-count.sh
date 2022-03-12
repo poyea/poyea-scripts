@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -e
-cd "$(dirname "$0")"
+cd "$(dirname "$(pwd)")"
 
 if [ ! -z $1 ] 
 then 
