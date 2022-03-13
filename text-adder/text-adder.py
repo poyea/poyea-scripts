@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-import re
-from pathlib import Path
 import argparse
+import re
 import sys
+from pathlib import Path
+
 
 def prepend_text(text_loc, directories, pattern, verbose):
     for d in directories:
@@ -45,5 +46,3 @@ if __name__ == "__main__":
     except:
         parser.print_help()
         sys.exit(0)
-
-
