@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-import urllib.request, json
+import json
+import urllib.request
+
 
 # A simple locator for any IP address
 def Locator(ip):

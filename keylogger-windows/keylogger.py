@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
+import datetime
 import sys
 from ctypes import *
 from ctypes.wintypes import MSG
-import datetime
 
 user32 = windll.user32
 kernel32 = windll.kernel32

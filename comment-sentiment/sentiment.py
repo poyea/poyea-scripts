@@ -7,9 +7,10 @@
  ╚════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝    ╚══════╝╚═╝  ╚═╝ ╚══╝╚══╝ 
 =============== Sentiment 2020 ===============
 """
-import nltk
 import re
-from typing import List, Dict
+from typing import Dict, List
+
+import nltk
 
 nltk.download("stopwords")
 

@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
+import sys
 from random import choice
 from string import ascii_letters, digits, printable
-import sys
-
 
 letters = ascii_letters + "_"
 all_letters = ascii_letters + digits
