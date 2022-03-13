@@ -13,7 +13,13 @@ def prepend_text(text_loc, directories, pattern, verbose):
             if verbose:
                 print(path.name)
             with open(text_loc, "r") as i, open(path.name, "a+") as o:
-                o.write(i.read() + "\n" + o.read())
+                h = i.read()
+                original = o.read()
+                out = ""
+                out += h
+                out += "\n"
+                out += original
+                o.write(out)
 
 
 if __name__ == "__main__":
