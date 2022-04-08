@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/bin/python3
 import json
 import urllib.request
 
@@ -7,12 +7,12 @@ import urllib.request
 def Locator(ip):
     if not ip:
         return "ERROR"
-    link = "https://extreme-ip-lookup.com/json/" + ip
+    link = "http://ip-api.com/json/" + ip
     with urllib.request.urlopen(link) as url:
         res = json.loads(url.read().decode())
     if not res:
         return "ERROR"
-    out = (res["city"], res["country"], res["continent"])
+    out = (res["city"], res["country"], res["timezone"])
     return ", ".join(filter(None, out))
 
 
