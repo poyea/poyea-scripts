@@ -1,4 +1,4 @@
-name: Description Check
+name: README
 
 on:
   push:
