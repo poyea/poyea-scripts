@@ -1,3 +1,4 @@
+#!/bin/python3
 """                                                                
 2020 John Law
 
