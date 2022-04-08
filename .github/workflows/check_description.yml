@@ -13,4 +13,4 @@ jobs:
       - uses: actions/checkout@master
       - name: Check if description is there
         run: |
-            test "$(grep -c -e "|.*|.*|" README.md | awk -F: '{$0-=2} END{print $0}')" = "$(echo */ | wc -w)" || false
+            test "$(grep -c -e "|.*|.*|" README.md | awk -F: '{$0-=2} END{print $0}')" = "$(echo */ | wc -w)"
