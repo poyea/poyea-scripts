@@ -1,4 +1,5 @@
-# poyea-scripts
+# poyea-scripts [![README](https://github.com/poyea/poyea-scripts/actions/workflows/check_description.yml/badge.svg)](https://github.com/poyea/poyea-scripts/actions/workflows/check_description.yml)
+
 This repository is for personal reference. I deliberately organize ideas and scripts in one repository.
 
 ## Table of Contents
