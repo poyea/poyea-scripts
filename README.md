@@ -1,6 +1,20 @@
 # poyea-scripts
 This repository is for personal reference. I deliberately organize ideas and scripts in one repository.
 
+## Table of Contents
+| Script      | Functionality |
+| ----------- | ----------- | 
+| fetch-titles | Fetch titles for a list of URLs |
+| ip-locator | Locate public IPs |
+| keylogger-windows | Log keys on Windows |
+| lines-of-code-counter | Count lines of code |
+| random-string-generator | Generate a random string |
+| sentiment-score-of-sentences | Compute the sentiment score of a text |
+| tcpdump-generator | Generate `tcpdump` filters from a list |
+| telegram-custom-client | Run a `telethon` Telegram client |
+| terminal-hanger | Hang a terminal |
+| text-adder | Add a text header to files in a directory |
+
 ## LICENSE
 This repository is licensed under MIT License. See also [LICENSE](LICENSE) for details.
 
