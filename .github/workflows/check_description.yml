@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Check if description is there
         run: |
             test "$(grep -c -e "|.*|.*|" README.md | awk -F: '{$0-=2} END{print $0}')" = "$(echo */ | wc -w)"
