@@ -1,6 +1,17 @@
 #!/bin/python3
 import sys
 
+"""
+$ cat hosts_list.txt
+localhost:32335
+localhost:32223,udp
+localhost:27777,tcp
+*:80,tcp
+
+$ ./tcpdump-gen.py < hosts_list.txt
+((host localhost and port 32335) or (host localhost and port 32223 and (udp)) or (host localhost and port 27777 and (tcp)) or (port 80 and (tcp)))
+"""
+
 
 def transform_ip(block: str) -> str:
     """
