@@ -9,6 +9,7 @@ This repository is for personal reference. I deliberately organize ideas and scr
 | ip-locator | Locate public IPs |
 | keylogger-windows | Log keys on Windows |
 | lines-of-code-counter | Count lines of code |
+| perf-util | A set of performance utilities on Linux |
 | random-string-generator | Generate a random string |
 | sentiment-score-of-sentences | Compute the sentiment score of a text |
 | tcpdump-generator | Generate `tcpdump` filters from a list |

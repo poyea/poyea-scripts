@@ -1,0 +1,54 @@
+#!/bin/bash
+# 
+# Ideas are borrowed from Brendan Gregg's (@brendangregg) talk.
+# 
+
+GREEN='\033[1;32m'
+PURPLE='\033[1;35m'
+NC='\033[0m'
+
+ask_done()
+{
+    echo -e ${PURPLE}
+    read -erp "Done? [N/y] : " opt
+    echo -e ${NC}
+    case $opt in
+        y|Y) exit ;;
+        *) ;;
+    esac
+}
+
+while true
+do
+    PS3="Choose an option : "
+    options=(
+        "uptime" \
+        "dmesg | tail" \
+        "vmstat 1" \
+        "mpstat -P ALL 1" \
+        # ^ may require sysstat package
+        "pidstat 1" \
+        "iostat -xz 1" \
+        "free -m" \
+        "sar -n DEV 1" \
+        "sar -n TCP,ETCP 1" \
+        "top" \
+        "exit" \
+    )
+    select opt in "${options[@]}"
+    do
+        if ((REPLY >= 1 && REPLY < ${#options[@]}))
+        then
+            echo -e "${GREEN}> $opt${NC}"
+            bash --rcfile <(echo "export PS1='> ' && trap 'exit' INT && eval $opt && exit || exit")
+            break
+        else
+            if ((REPLY == 11))
+            then
+                exit
+            fi
+            echo "What's that?" >&2
+        fi
+    done
+    ask_done
+done
