@@ -3,9 +3,9 @@
 # Ideas are borrowed from Brendan Gregg's (@brendangregg) talk.
 # 
 
-GREEN='\033[1;32m'
-PURPLE='\033[1;35m'
-NC='\033[0m'
+GREEN="\033[1;32m"
+PURPLE="\033[1;35m"
+NC="\033[0m"
 
 ask_done()
 {
