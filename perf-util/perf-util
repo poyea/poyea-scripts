@@ -43,7 +43,7 @@ do
             bash --rcfile <(echo "export PS1='> ' && trap 'exit' INT && eval $opt && exit || exit")
             break
         else
-            if ((REPLY == 11))
+            if ((REPLY == 11 || REPLY == "exit"))
             then
                 exit
             fi
