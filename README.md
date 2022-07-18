@@ -16,7 +16,7 @@ This repository is for personal reference. I deliberately organize ideas and scr
 | telegram-custom-client | Run a `telethon` Telegram client |
 | terminal-hanger | Hang a terminal |
 | text-adder | Add a text header to files in a directory |
-| wave-generator | Generate soundwave using `pyaudio` |
+| wave-generator | Generate soundwaves using `pyaudio` |
 
 ## LICENSE
 This repository is licensed under MIT License. See also [LICENSE](LICENSE) for details.
