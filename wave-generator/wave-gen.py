@@ -1,7 +1,6 @@
+import matplotlib.pyplot as plt
 import numpy as np
 import pyaudio
-from scipy import signal
-import matplotlib.pyplot as plt
 
 volume = 0.05
 duration_seconds = 3
