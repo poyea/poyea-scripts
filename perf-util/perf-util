@@ -18,37 +18,33 @@ ask_done()
     esac
 }
 
-while true
+PS3="Choose an option : "
+options=(
+    "uptime" \
+    "dmesg | tail" \
+    "vmstat 1" \
+    "mpstat -P ALL 1" \
+    # ^ may require sysstat package
+    "pidstat 1" \
+    "iostat -xz 1" \
+    "free -m" \
+    "sar -n DEV 1" \
+    "sar -n TCP,ETCP 1" \
+    "top" \
+    "exit" \
+)
+select opt in "${options[@]}"
 do
-    PS3="Choose an option : "
-    options=(
-        "uptime" \
-        "dmesg | tail" \
-        "vmstat 1" \
-        "mpstat -P ALL 1" \
-        # ^ may require sysstat package
-        "pidstat 1" \
-        "iostat -xz 1" \
-        "free -m" \
-        "sar -n DEV 1" \
-        "sar -n TCP,ETCP 1" \
-        "top" \
-        "exit" \
-    )
-    select opt in "${options[@]}"
-    do
-        if ((REPLY >= 1 && REPLY < ${#options[@]}))
+    if ((REPLY >= 1 && REPLY < ${#options[@]}))
+    then
+        echo -e "${GREEN}> $opt${NC}"
+        bash --rcfile <(echo "export PS1='> ' && trap 'exit' INT && eval $opt && exit || exit")
+        break
+    else
+        if ((REPLY == 11 || REPLY == "exit"))
         then
-            echo -e "${GREEN}> $opt${NC}"
-            bash --rcfile <(echo "export PS1='> ' && trap 'exit' INT && eval $opt && exit || exit")
-            break
-        else
-            if ((REPLY == 11 || REPLY == "exit"))
-            then
-                exit
-            fi
-            echo "What's that?" >&2
+            exit
         fi
-    done
-    ask_done
+        echo "What's that?" >&2
+    fi
 done
