@@ -8,17 +8,19 @@ PURPLE="\033[1;35m"
 NC="\033[0m"
 COLUMNS=1
 
-ask_done()
-{
-    echo -e ${PURPLE}
-    read -erp "Done? [N/y] : " opt
-    echo -e ${NC}
-    case $opt in
-        y|Y) exit ;;
-        *) ;;
-    esac
-}
+# ask_done()
+# {
+#     echo -e ${PURPLE}
+#     read -erp "Done? [N/y] : " opt
+#     echo -e ${NC}
+#     case $opt in
+#         y|Y) exit ;;
+#         *) ;;
+#     esac
+# }
+
 echo -e "Choose an option:"
+
 options=(
     "uptime" \
     "dmesg | tail" \
@@ -33,8 +35,8 @@ options=(
     "top" \
     "exit" \
 )
-select opt in "${options[@]}"
-do
+
+select opt in "${options[@]}"; do
     if ((REPLY >= 1 && REPLY < ${#options[@]}))
     then
         echo -e "${GREEN}> $opt${NC}"
