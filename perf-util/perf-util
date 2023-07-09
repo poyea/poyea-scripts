@@ -6,6 +6,7 @@
 GREEN="\033[1;32m"
 PURPLE="\033[1;35m"
 NC="\033[0m"
+COLUMNS=1
 
 ask_done()
 {
